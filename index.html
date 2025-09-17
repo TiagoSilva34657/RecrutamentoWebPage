@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Image Render</title>
 </head>
-<body style="height:100%; background-color: white;" >
+<body style="height:100%; background-color:white;">
+  <img id="dynamicImage" src="" alt="My Image" style="width:100%;">
 
-    <img src="Vaca.jpeg" alt="My Image" style="width:100%;">
+  <script>
+    const path = window.location.pathname; // e.g. "/boda"
+
+    const image = document.getElementById("dynamicImage");
+
+    if (path === "/" || path === "/index.html") {
+      image.src = "Vaca.jpeg";
+      image.alt = "Vaca";
+    } else if (path === "/boda") {
+      image.src = "Cow1.jpeg";
+      image.alt = "Boda";
+    } else if (path === "/cachorro") {
+      image.src = "Cow2.jpeg";
+      image.alt = "Cachorro";
+    } else {
+      image.src = "NotFound.jpeg";
+      image.alt = "Devido a falhas no orçamento não foi possivél colocar imagem aqui, em caso de: duvida, interesse na tuna ou falta de cerveja contactar - 919065748";
+    }
+  </script>
 </body>
 </html>
+
+
